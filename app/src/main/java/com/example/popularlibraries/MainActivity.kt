@@ -21,7 +21,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
         vb?.btnCounter1?.setOnClickListener { presenter.button1Click() }
         vb?.btnCounter2?.setOnClickListener { presenter.button2Click() }
-        vb?.btnCounter2?.setOnClickListener { presenter.button2Click() }
+        vb?.btnCounter3?.setOnClickListener { presenter.button3Click() }
 
     }
 
