@@ -8,10 +8,10 @@ import moxy.viewstate.strategy.StateStrategyType
 @StateStrategyType(AddToEndSingleStrategy::class)   // стратегия Moxy
 interface MainView : MvpView{
 
-    @StateStrategyType(OneExecutionStateStrategy::class)    // для каждой команды можно указывать отдельную стратегию
+    // для каждой команды можно указывать отдельную стратегию
     fun setButton1Text(text: String)
-
-    fun setButton2Text(text: String)    // если стратегия не указана, к ней применяется стратегия класса
+    // если стратегия не указана, к ней применяется стратегия класса
+    fun setButton2Text(text: String)
 
     fun setButton3Text(text: String)
 }
