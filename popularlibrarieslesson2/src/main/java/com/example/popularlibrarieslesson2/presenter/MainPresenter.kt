@@ -6,7 +6,8 @@ import com.github.terrakok.cicerone.Router
 import moxy.MvpPresenter
 
 
-class MainPresenter(private val router: Router, private val screens: IScreens) : MvpPresenter<MainView>() {
+class MainPresenter(private val router: Router, private val screens: IScreens) :
+    MvpPresenter<MainView>() {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
@@ -16,5 +17,6 @@ class MainPresenter(private val router: Router, private val screens: IScreens) :
     fun backClicked() {
         router.exit()
     }
+
 }
 

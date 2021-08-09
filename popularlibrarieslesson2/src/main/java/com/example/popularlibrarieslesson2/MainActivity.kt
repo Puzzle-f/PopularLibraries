@@ -1,11 +1,8 @@
 package com.example.popularlibrarieslesson2
 
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.popularlibrarieslesson2.model.GithubUsersRepo
 import com.example.popularlibrarieslesson2.presenter.MainPresenter
 import com.example.popularlibrarieslesson2.view.MainView
-import com.example.popularlibrarieslesson2.view.UsersRVAdapter
 import com.example.popularlibrarieslesson2.databinding.ActivityMainBinding
 import com.example.popularlibrarieslesson2.view.AndroidScreens
 import com.example.popularlibrarieslesson2.view.BackButtonListener

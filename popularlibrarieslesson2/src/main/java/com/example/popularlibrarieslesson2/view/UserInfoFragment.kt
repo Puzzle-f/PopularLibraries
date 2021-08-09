@@ -1,14 +1,11 @@
 package com.example.popularlibrarieslesson2.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import com.example.popularlibrarieslesson2.R
 import com.example.popularlibrarieslesson2.databinding.FragmentUserInfoBinding
-import com.example.popularlibrarieslesson2.fragment.UsersFragment
-import com.example.popularlibrarieslesson2.model.GithubUser
+import com.example.popularlibrarieslesson2.model.api.GithubUser
+import com.example.popularlibrarieslesson2.model.api.IGithubUsersRepo
 import moxy.MvpAppCompatFragment
 
 
@@ -31,5 +28,4 @@ class UserInfoFragment(private val userData: GithubUser) : MvpAppCompatFragment(
     fun setLoginText(){
         vb?.loginText?.text = userData.login
     }
-
 }
