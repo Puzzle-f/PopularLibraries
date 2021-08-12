@@ -39,11 +39,11 @@ class RepoPresenter(
         super.onFirstViewAttach()
         viewState.init()
         loadData()
-        repoListPresenter.itemClickListener = { itemView ->
-            val repoData = repoListPresenter.repositories[itemView.pos]
-            Log.d("", "Имя репозитория: $repoData")
-            router.navigateTo(screens.repoInfo())
-        }
+//        repoListPresenter.itemClickListener = { itemView ->
+//            val repoData = repoListPresenter.repositories[itemView.pos]
+//            Log.d("", "Имя репозитория: $repoData")
+//            router.navigateTo(screens.repoInfo())
+//        }
     }
 
     private fun loadData(){
@@ -68,6 +68,7 @@ class RepoPresenter(
     fun backPressed(): Boolean{
         router.exit()
         disposable?.dispose()
+        router.navigateTo(screens.users())
         return true
     }
 }
