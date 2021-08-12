@@ -7,3 +7,5 @@ interface IRepoItemView {
 interface RepoItemView : IRepoItemView {
     fun setRepoName(text: String)
 }
+
+

@@ -13,7 +13,7 @@ interface IDataSource {
     fun fetchUserByLogin(@Path("login") login: String): Single<GithubUser>
 
     @GET("/users/{login}/repos")
-    fun fetchUserRepos(@Path("login") login: String): Single<List<GithubUser>>
+    fun fetchUserRepos(@Path("login") login: String): Single<List<Repository>>
 
 
 }

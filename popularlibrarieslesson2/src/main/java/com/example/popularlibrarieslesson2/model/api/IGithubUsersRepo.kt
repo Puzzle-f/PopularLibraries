@@ -7,6 +7,6 @@ interface IGithubUsersRepo {
 
     fun fetchUserByLogin(login: String): Single<GithubUser>
 
-    fun fetchUserRepo(login: String): Single<List<GithubUser>>
+    fun fetchUserRepo(login: String): Single<List<Repository>>
 
 }
