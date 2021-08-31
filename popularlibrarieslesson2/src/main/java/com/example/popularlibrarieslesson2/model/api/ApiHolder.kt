@@ -23,9 +23,9 @@ object ApiHolder {
             .addConverterFactory(GsonConverterFactory.create(gson))     // то же самое для Gson конвертера
             .client(
                 OkHttpClient.Builder()
-//                    .addInterceptor(HttpLoggingInterceptor().apply {
-//                        level = HttpLoggingInterceptor.Level.BODY
-//                    })
+                    .addInterceptor(HttpLoggingInterceptor().apply {
+                        level = HttpLoggingInterceptor.Level.BODY
+                    })
                     .build()
             )
             .build()

@@ -10,7 +10,10 @@ import com.example.popularlibrarieslesson2.presenter.UsersPresenter
 import com.example.popularlibrarieslesson2.databinding.FragmentUsersBinding
 import com.example.popularlibrarieslesson2.model.api.ApiHolder
 import com.example.popularlibrarieslesson2.model.api.RetrofitGithubUsersRepo
+import com.example.popularlibrarieslesson2.model.api.RoomData.db.Database
 import com.example.popularlibrarieslesson2.view.loadimage.GlideImageLoader
+import com.example.popularlibrarieslesson2.view.network.AndroidNetworkStatus
+import com.example.popularlibrarieslesson2.view.network.INetworkStatus
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
@@ -23,7 +26,7 @@ class UsersFragment : MvpAppCompatFragment(), UsersView, BackButtonListener {
     val presenter: UsersPresenter by moxyPresenter {
         UsersPresenter(
             AndroidSchedulers.mainThread(),
-            RetrofitGithubUsersRepo(ApiHolder.api),
+            RetrofitGithubUsersRepo(ApiHolder.api, AndroidNetworkStatus(requireContext()), Database.getInstance()),
             App.instance.router,
             AndroidScreens()
         )

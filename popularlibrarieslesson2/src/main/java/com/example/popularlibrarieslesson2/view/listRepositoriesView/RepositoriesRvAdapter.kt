@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.popularlibrarieslesson2.databinding.ItemRepoBinding
+import com.example.popularlibrarieslesson2.model.api.Repository
 
 
 class RepositoriesRVAdapter(private val presenter: IRepositoriesPresenter) :

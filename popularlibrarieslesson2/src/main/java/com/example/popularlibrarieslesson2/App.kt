@@ -1,6 +1,7 @@
 package com.example.popularlibrarieslesson2
 
 import android.app.Application
+import com.example.popularlibrarieslesson2.model.api.RoomData.db.Database
 import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.Router
 
@@ -18,6 +19,7 @@ class App: Application() {
 
     override fun onCreate() {
         super.onCreate()
+        Database.create(this)
         instance = this
     }
 }

@@ -1,6 +1,7 @@
 package com.example.popularlibrarieslesson2.presenter
 
 import com.example.popularlibrarieslesson2.model.api.IGithubUsersRepo
+import com.example.popularlibrarieslesson2.view.BackButtonListener
 import com.example.popularlibrarieslesson2.view.IScreens
 import com.example.popularlibrarieslesson2.view.RepoView
 import com.github.terrakok.cicerone.Router
@@ -23,7 +24,11 @@ private var disposable: Disposable? = null
 
     }
 
-
+    fun backPressed(): Boolean {
+        disposable?.dispose()
+        router.backTo(screens.users())
+        return true
+    }
 
 
 

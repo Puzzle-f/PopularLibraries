@@ -7,30 +7,37 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.popularlibrarieslesson2.App
 import com.example.popularlibrarieslesson2.databinding.FragmentRepositoriesBinding
-import com.example.popularlibrarieslesson2.model.api.ApiHolder
-import com.example.popularlibrarieslesson2.model.api.GithubUser
-import com.example.popularlibrarieslesson2.model.api.RetrofitGithubUsersRepo
+import com.example.popularlibrarieslesson2.model.api.*
+import com.example.popularlibrarieslesson2.model.api.RoomData.db.Database
 import com.example.popularlibrarieslesson2.presenter.RepoPresenter
 import com.example.popularlibrarieslesson2.view.AndroidScreens
 import com.example.popularlibrarieslesson2.view.BackButtonListener
+import com.example.popularlibrarieslesson2.view.IScreens
 import com.example.popularlibrarieslesson2.view.RepoView
+import com.example.popularlibrarieslesson2.view.network.AndroidNetworkStatus
+import com.github.terrakok.cicerone.Router
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Scheduler
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
 
-class RepositoriesFragment(name: String) : MvpAppCompatFragment(), RepoView, BackButtonListener
-{
+class RepositoriesFragment(private val userData: GithubUser) : MvpAppCompatFragment(), RepoView, BackButtonListener {
 
     companion object {
-        fun newInstance(name: String) = RepositoriesFragment(name)
+        fun newInstance(userData: GithubUser) = RepositoriesFragment(userData)
     }
 
+
     val presenter: RepoPresenter by moxyPresenter {
-        Log.d("","инициилизируем presenter для RepositoriesFragment")
+        Log.d("", "инициилизируем presenter для RepositoriesFragment")
         RepoPresenter(
-            name,
+            userData,
             AndroidSchedulers.mainThread(),
-            RetrofitGithubUsersRepo(ApiHolder.api),
+            RetrofitGithubRepositoriesRepo(
+                ApiHolder.api,
+                AndroidNetworkStatus(requireContext()),
+                Database.getInstance()
+            ),
             App.instance.router,
             AndroidScreens()
         )
