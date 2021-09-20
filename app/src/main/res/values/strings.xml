@@ -3,5 +3,6 @@
     <string name="counter_one">counter 1</string>
     <string name="counter_two">counter 2</string>
     <string name="counter_three">counter 3</string>
+    <string name="counter_start_value">0</string>
 
 </resources>

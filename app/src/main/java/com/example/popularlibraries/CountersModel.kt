@@ -12,9 +12,4 @@ class CountersModel {
         counters[index]++
         return getCurrent(index)
     }
-
-    fun set(index: Int, value: Int){
-        counters[index] = value
-    }
-
 }

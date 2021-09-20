@@ -1,2 +1,4 @@
+include ':formatconversiontopng'
+include ':popularlibrarieslesson2'
 include ':app'
 rootProject.name = "PopularLibraries"

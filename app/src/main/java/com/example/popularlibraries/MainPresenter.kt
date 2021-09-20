@@ -1,23 +1,25 @@
 package com.example.popularlibraries
 
-class MainPresenter(val view: MainView) {
-    val model = CountersModel()
+import android.util.Log
+import moxy.MvpPresenter
 
-    //Архитектурная ошибка. В качестве практического задания — исправить
-    fun counterClick(id: Int){
-        when(id){
-            R.id.btn_counter1 -> {
-                val nextValue = model.next(0)
-                view.setButtonText(0, nextValue.toString())
-            }
-            R.id.btn_counter2 -> {
-                val nextValue = model.next(1)
-                view.setButtonText(1, nextValue.toString())
-            }
-            R.id.btn_counter3 -> {
-                val nextValue = model.next(2)
-                view.setButtonText(2, nextValue.toString())
-            }
-        }
+class MainPresenter(val model: CountersModel): MvpPresenter<MainView>() {
+
+    fun button1Click(){
+        val count = model.next(0)
+        viewState.setButton1Text(count.toString())
+        Log.d("TAG", "count1 = $count")
+    }
+
+    fun button2Click(){
+        val count = model.next(1)
+        viewState.setButton2Text(count.toString())
+        Log.d("TAG", "count2 = $count")
+    }
+
+    fun button3Click(){
+        val count = model.next(2)
+        viewState.setButton3Text(count.toString())
+        Log.d("TAG", "count3 = $count")
     }
 }
